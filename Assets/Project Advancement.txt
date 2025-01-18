@@ -1,0 +1,25 @@
+
+
+The goal is to make a game where the players shoots darts towards balloons which are passing through  in front of the player. 
+
+
+1- Implementing the balloon physics: 
+
+-> For the Balloons the goal is to have them appear randomly in front of the player, and then disappear in case they are not popped.
+
+
+
+	-> The balloons are generated with a random velocity vector in the (Y,Z) plane. Bounded by X values 	(1.82, -1.82)
+
+	-> For now the balloons are generated in the plane Z = 6 And bound in the rectangle : 
+		(1.6, 5.8)
+		(1.6, 2.3)
+		(4.3, 2.3)
+		(4.3, 5.8)
+
+
+	-> In this case The balloons must have a negative Z speed and null X speed and variable y speed direction = (0,Y)
+
+-> The bouncy ballons idea => make use of them to make obstacles to increase or decreae the game difficulty 
+
+
