@@ -7,6 +7,7 @@ public class BalloonMovement : MonoBehaviour
     public float speed = 0.5f; // Speed of the balloon
     private Vector3 direction; // Direction of the balloon
     private Rigidbody rb; // Reference to the Rigidbody component
+    private float score =0f ; // Score of the player
 
     void Start()
     {
@@ -33,14 +34,26 @@ public class BalloonMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         
-        Debug.Log("Collision detected with" +collision.gameObject.name );
+        Debug.Log("Collision detected with" + collision.gameObject.name );
 
-        ContactPoint contact = collision.contacts[0];
+        if (collision.gameObject.CompareTag("Dart")){ // If the balloon collides with a dart
+            score = 1f; // Increase the score by 1
+            //Destroy the balloon
+            Destroy(gameObject);
+            Debug.Log("Balloon destroyed");
+            // Update the score
+            GameObject.Find("UIManager").GetComponent<UIManager>().UpdateScore(score);
+        }
+        else { // If the balloon collides with a another object 
+               // Reflect the direction of the balloon            
+            ContactPoint contact = collision.contacts[0];
 
-        direction = Vector3.Reflect(direction, contact.normal);
-        // direction.x = 0;
-        direction = direction.normalized;
+            direction = Vector3.Reflect(direction, contact.normal);
 
+            direction = direction.normalized;
+
+        }
+        
         
 
     }

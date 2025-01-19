@@ -1,0 +1,9 @@
+- Make the game limited in terms of gameplay:
+    - The user starts the game with a limited amount of darts which they can set between 0 and 100 (training mode)
+- Make difficulty settings:
+    - Hard: Fewer darts, faster balloons
+    - Medium: Moderate darts, moderate balloon speed
+    - Easy: More darts, slower balloons
+- Create a score system:
+    - Keep track of players and their scores by player name and score 
+    - top 10 scores are shown at the bottom of the menu
